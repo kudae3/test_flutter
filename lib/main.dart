@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_project_1/widgets/box.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,23 +17,15 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  PurpleBox(text: 'Hello, Flutter!'),
-                  SizedBox(height: 20),
-                  PurpleBox(text: 'Welcome to my app.'),
-                ],
-              ),
-            ],
+          body: Center(
+            child: Image.asset(
+              'assets/images/bg.jpeg',
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
           ),
         ),
-      )
-    );
+      );
   }
 }
