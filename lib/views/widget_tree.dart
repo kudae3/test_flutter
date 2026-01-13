@@ -14,13 +14,12 @@ class WidgetTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          
-          appBar: AppBar(
-            title: Text('My Flutter', style: TextStyle(fontSize: 16)),
-          ),
-          body: pages[0],
-          bottomNavigationBar: NavbarWidget(),
-        
-        );
+      appBar: AppBar(
+        title: Text('My Flutter', style: TextStyle(fontSize: 16)),
+      ),
+      body: pages[0],
+      bottomNavigationBar: NavbarWidget(),
+    
+    );
   }
 }
