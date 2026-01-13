@@ -30,6 +30,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,16 +42,21 @@ class _MyHomePageState extends State<MyHomePage> {
           
         
           bottomNavigationBar: NavigationBar(
+            selectedIndex: currentIndex,
             destinations: [
               NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
               NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
             ],
-            selectedIndex: 0,
-            // onDestinationSelected: (int val) => {print('Selected: $val')},
+            onDestinationSelected: (int val) {
+              setState(() {
+                currentIndex = val;
+              });
+            },
             ),
         
           body: Center(
-            child: Text(name),
+            child: currentIndex == 0 ? Text('Welcome to Home Page', style: TextStyle(fontSize: 20))
+            : Text('Settings Page', style: TextStyle(fontSize: 20)),
           ),
         ),
     );
