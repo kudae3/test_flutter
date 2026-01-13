@@ -17,15 +17,28 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: Scaffold(
-          body: Center(
-            child: Image.asset(
-              'assets/images/bg.jpeg',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
-            ),
+          body: Stack(
+            children: [
+              Image.asset(
+                'assets/images/bg.jpeg',
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.tryParse('500'),
+              ),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text('Hello Flutter',
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      )),
+                ),
+              ),
+            ],
           ),
         ),
-      );
+    );
   }
 }
