@@ -11,6 +11,8 @@ class _ProfilePageState extends State<ProfilePage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   
+  bool value = false;
+
   @override
   void dispose() {
     nameController.dispose();
@@ -41,6 +43,21 @@ class _ProfilePageState extends State<ProfilePage> {
               border: OutlineInputBorder(),
             ),
           ),
+          
+          Checkbox(value: value, onChanged:(value) {
+            setState(() {
+              this.value = value!;
+            });
+          }),
+
+          CheckboxListTile(
+            title: Text('Receive Newsletter'),
+            value: value, 
+            onChanged:(value) {
+            setState(() {
+              this.value = value!;
+            });
+          },),
           
           ValueListenableBuilder(
             valueListenable: nameController, builder:(context, value, child) {
