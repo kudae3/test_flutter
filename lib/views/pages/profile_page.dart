@@ -10,6 +10,14 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    super.dispose();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,8 +41,20 @@ class _ProfilePageState extends State<ProfilePage> {
               border: OutlineInputBorder(),
             ),
           ),
-          Text('Your name is: ${nameController.text}'),
-          Text('Your email is: ${emailController.text}'),
+          
+          ValueListenableBuilder(
+            valueListenable: nameController, builder:(context, value, child) {
+            return Text('Your name is: ${nameController.text}');
+          }),
+
+          ValueListenableBuilder(
+            valueListenable: emailController,
+            builder: (BuildContext context, dynamic value, Widget? child) {
+              return Text('Your email is: ${emailController.text}');
+            },
+          ),
+          
+          
         ],
       ),
     );
