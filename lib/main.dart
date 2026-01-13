@@ -17,7 +17,22 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal, brightness: Brightness.dark),
       ),
       
-      home: SafeArea(
+      home: MyHomePage()
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
         child: Scaffold(
           
           appBar: AppBar(
@@ -38,7 +53,6 @@ class MyApp extends StatelessWidget {
             child: Text(name),
           ),
         ),
-      ),
     );
   }
 }
