@@ -17,6 +17,10 @@ class WidgetTree extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('My Flutter', style: TextStyle(fontSize: 16)),
+        centerTitle: false,
+        actions: [
+          IconButton(onPressed: () => {}, icon: Icon(Icons.light_mode))
+        ],
       ),
       body: ValueListenableBuilder(
         valueListenable:  currentIndexNotifier,
