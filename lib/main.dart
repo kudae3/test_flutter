@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_project_1/data/notifiers.dart';
-import 'package:my_project_1/views/widget_tree.dart';
+import 'package:my_project_1/views/pages/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal, brightness: value ? Brightness.light : Brightness.dark),
         ),
         
-        home: WidgetTree()
+        home: WelcomePage()
       ),
     );
     });
