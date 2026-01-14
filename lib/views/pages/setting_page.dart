@@ -59,6 +59,11 @@ class _SettingPageState extends State<SettingPage> {
                 ),
                 child: Text('Alert Dialog'),
               ),
+
+              Divider(
+                height: 40,
+                thickness: 2,
+              ),
           
               DropdownButton(
                 value: selectedValue,
