@@ -1,8 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:my_project_1/widgets/hero_widget.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  
+  @override
+  void initState() {
+    super.initState();
+    
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,17 +32,17 @@ class LoginPage extends StatelessWidget {
       body: Column(
         children: [
           HeroWidget(title: 'LOGIN PAGE'),
-          // Additional login form elements would go here
           
           const SizedBox(height: 30),
     
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: emailController,
               decoration: InputDecoration(
-                labelText: 'Username',
+                labelText: 'Email',
                 border: OutlineInputBorder(
-                  borderRadius:BorderRadius.circular(20)
+                  borderRadius:BorderRadius.circular(10)
                 ),
               ),
             ),
@@ -31,16 +53,17 @@ class LoginPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: passwordController,
               decoration: InputDecoration(
-                labelText: 'Username',
+                labelText: 'Password',
                 border: OutlineInputBorder(
-                  borderRadius:BorderRadius.circular(20)
+                  borderRadius:BorderRadius.circular(10)
                 ),
               ),
             ),
           ),
 
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
 
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -50,12 +73,26 @@ class LoginPage extends StatelessWidget {
             style: FilledButton.styleFrom(
               minimumSize: Size(double.infinity, 50),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30)
+                borderRadius: BorderRadius.circular(10)
               )
             ),
             child: Text('Login')),
-          )
+          ),
     
+          ValueListenableBuilder(
+            valueListenable: emailController, 
+            builder:(context, value, child) {
+              return Text('Email: ${emailController.text}');
+            },
+          ),
+
+          ValueListenableBuilder(
+            valueListenable: passwordController, 
+            builder:(context, value, child) {
+              return Text('Password: ${passwordController.text}');
+            },
+          )
+
         ],
       )
     );
