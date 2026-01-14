@@ -16,16 +16,28 @@ class WelcomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Lottie.asset('assets/lotties/Fish_Loader.json'),
-              Text('Welcome to the App!', style: TextStyle(fontSize: 21)),
+              Text('Welcome to the App!', style: TextStyle(fontSize: 24, letterSpacing: 1.5)),
               SizedBox(height: 23),
-              FilledButton(onPressed: () => {
-                Navigator.pushReplacement(context, 
-                  MaterialPageRoute(builder: (context) {
-                    return WidgetTree();
-                  })
-                )
-              }, 
-              child: Text('Login'))
+              FilledButton(
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20)
+                ),
+                onPressed: () => {
+                  Navigator.pushReplacement(context, 
+                    MaterialPageRoute(builder: (context) {
+                      return WidgetTree();
+                    })
+                  )
+                }, 
+              child: const Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
