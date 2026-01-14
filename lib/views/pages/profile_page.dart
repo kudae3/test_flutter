@@ -23,81 +23,87 @@ class _ProfilePageState extends State<ProfilePage> {
   
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        children: [
-          TextField(
-            controller: nameController,
-            onEditingComplete: () => setState(() {}),
-            decoration: InputDecoration(
-              labelText: 'Your name',
-              border: OutlineInputBorder(),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: nameController,
+              onEditingComplete: () => setState(() {}),
+              decoration: InputDecoration(
+                labelText: 'Your name',
+                border: OutlineInputBorder(),
+              ),
             ),
-          ),
-          SizedBox(height: 20),
-          TextField(
-            controller: emailController,
-            onEditingComplete: () => setState(() {}),
-            decoration: InputDecoration(
-              labelText: 'Your email',
-              border: OutlineInputBorder(),
+            SizedBox(height: 20),
+            TextField(
+              controller: emailController,
+              onEditingComplete: () => setState(() {}),
+              decoration: InputDecoration(
+                labelText: 'Your email',
+                border: OutlineInputBorder(),
+              ),
             ),
-          ),
-          
-          Checkbox(value: value, onChanged:(value) {
-            setState(() {
-              this.value = value!;
-            });
-          }),
-
-          CheckboxListTile(
-            title: Text('Receive Newsletter'),
-            value: value, 
-            onChanged:(value) {
-            setState(() {
-              this.value = value!;
-            });
-          },),
-
-          Switch(value: value, onChanged:(newValue) {
-            setState(() {
-              value = newValue;
-            });
-          }),
-          
-          SwitchListTile.adaptive(title: Text('Newsletter'), value: value, onChanged:(newValue) {
-            setState(() {
-              value = newValue;
-            });
-          }),
-
-          ValueListenableBuilder(
-            valueListenable: nameController, builder:(context, value, child) {
-            return Text('Your name is: ${nameController.text}');
-          }),
-
-          ValueListenableBuilder(
-            valueListenable: emailController,
-            builder: (BuildContext context, dynamic value, Widget? child) {
-              return Text('Your email is: ${emailController.text}');
-            },
-          ),
-
-
-          Slider(
-            value: sliderValue, 
-            max: 100,
-            divisions: 5,
-            onChanged: (newValue) {
+            
+            Checkbox(value: value, onChanged:(value) {
               setState(() {
-                sliderValue = newValue;
+                this.value = value!;
               });
+            }),
+      
+            CheckboxListTile(
+              title: Text('Receive Newsletter'),
+              value: value, 
+              onChanged:(value) {
+              setState(() {
+                this.value = value!;
+              });
+            },),
+      
+            Switch(value: value, onChanged:(newValue) {
+              setState(() {
+                value = newValue;
+              });
+            }),
+            
+            SwitchListTile.adaptive(title: Text('Newsletter'), value: value, onChanged:(newValue) {
+              setState(() {
+                value = newValue;
+              });
+            }),
+      
+            ValueListenableBuilder(
+              valueListenable: nameController, builder:(context, value, child) {
+              return Text('Your name is: ${nameController.text}');
+            }),
+      
+            ValueListenableBuilder(
+              valueListenable: emailController,
+              builder: (BuildContext context, dynamic value, Widget? child) {
+                return Text('Your email is: ${emailController.text}');
+              },
+            ),
+      
+      
+            Slider(
+              value: sliderValue, 
+              max: 100,
+              divisions: 5,
+              onChanged: (newValue) {
+                setState(() {
+                  sliderValue = newValue;
+                });
               print(sliderValue);
             }),
-          
-          
-        ],
+      
+            GestureDetector(
+              child: 
+                Image.asset('assets/images/bg.jpeg'), 
+                onTap: () => print('Image Tapped!'),
+            ),
+          ],
+        ),
       ),
     );
   }
