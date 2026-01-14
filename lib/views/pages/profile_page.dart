@@ -13,6 +13,7 @@ class _ProfilePageState extends State<ProfilePage> {
   
   bool value = false;
   double sliderValue = 0.0;
+  String? selectedValue;
 
   @override
   void dispose() {
@@ -28,6 +29,23 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
+            DropdownButton(
+              value: selectedValue,
+              hint: Text('Select an item'),
+              items: [
+                DropdownMenuItem(value: '1', child: Text('Item 1')),
+                DropdownMenuItem(value: '2', child: Text('Item 2')),
+                DropdownMenuItem(value: '3', child: Text('Item 3')),
+              ], 
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
+            ),
+
+            SizedBox(height: 20),
+            
             TextField(
               controller: nameController,
               onEditingComplete: () => setState(() {}),
