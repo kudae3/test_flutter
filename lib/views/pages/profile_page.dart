@@ -104,14 +104,39 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
 
             InkWell(
-              splashColor: Colors.yellowAccent,
+              splashColor: Colors.cyan,
               onTap: () => (),
               child: Container(
-                height: 200,
+                height: 70,
                 width: double.infinity,
                 color: Colors.white12,
               ),
+            ),
+
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)
+                )
+              ),
+              onPressed: () => (),
+              child: Text('Button'),
+            ),
+
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)
+                )
+              ),
+              onPressed: () => (),
+              child: Text('Button'),
             )
+
           ],
         ),
       ),
