@@ -7,22 +7,25 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('assets/images/bg.jpg'), 
-            Text('Welcome to the App!', style: TextStyle(fontSize: 21)),
-            SizedBox(height: 23),
-            FilledButton(onPressed: () => {
-              Navigator.pushReplacement(context, 
-                MaterialPageRoute(builder: (context) {
-                  return WidgetTree();
-                })
-              )
-            }, 
-            child: Text('Login'))
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ClipRRect(borderRadius: BorderRadius.circular(20), child: Image.asset('assets/images/bg.jpg')), 
+              Text('Welcome to the App!', style: TextStyle(fontSize: 21)),
+              SizedBox(height: 23),
+              FilledButton(onPressed: () => {
+                Navigator.pushReplacement(context, 
+                  MaterialPageRoute(builder: (context) {
+                    return WidgetTree();
+                  })
+                )
+              }, 
+              child: Text('Login'))
+            ],
+          ),
         ),
       ),
     );
