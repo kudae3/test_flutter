@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SettingPage extends StatefulWidget {
-  const SettingPage({super.key});
+  final String title;
+  const SettingPage({super.key, required this.title});
 
   @override
   State<SettingPage> createState() => _SettingPageState();
@@ -26,7 +27,7 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings', style: TextStyle(fontSize: 16)),
+        title: Text(widget.title, style: TextStyle(fontSize: 16)),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -121,7 +122,7 @@ class _SettingPageState extends State<SettingPage> {
         
               GestureDetector(
                 child: 
-                  Image.asset('assets/images/bg.jpeg'), 
+                  Image.asset('assets/images/bg.jpg'), 
                   onTap: () => (),
               ),
       

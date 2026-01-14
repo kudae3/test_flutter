@@ -24,7 +24,7 @@ class WidgetTree extends StatelessWidget {
             IconButton(onPressed: () => {lightThemeNotifier.value = !lightThemeNotifier.value}, icon: lightThemeNotifier.value ? Icon(Icons.dark_mode) : Icon(Icons.light_mode)),
             IconButton(onPressed: () => {
               Navigator.push(context, MaterialPageRoute(builder: (context){
-                return SettingPage();
+                return SettingPage(title: 'Settings Page');
               })),
             }, icon: Icon(Icons.settings))
           ],
