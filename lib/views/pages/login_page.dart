@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:my_project_1/views/widget_tree.dart';
 import 'package:my_project_1/widgets/hero_widget.dart';
 
@@ -40,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          HeroWidget(title: 'LOGIN'),
+          Lottie.asset('assets/lotties/Login.json'),  
           
           const SizedBox(height: 30),
     

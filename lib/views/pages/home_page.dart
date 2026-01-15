@@ -16,13 +16,15 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 20),
             Text('Welcome to the Home Page!', style: TextStyle(fontSize: 18)),
             SizedBox(height: 20),
-            CardWidget(title: 'Card Title', content: 'This is a card widget with some content.'),
-            CardWidget(title: 'Card Title', content: 'This is a card widget with some content.'),
-            CardWidget(title: 'Card Title', content: 'This is a card widget with some content.'),
-            CardWidget(title: 'Card Title', content: 'This is a card widget with some content.'),
-            CardWidget(title: 'Card Title', content: 'This is a card widget with some content.'),
-            CardWidget(title: 'Card Title', content: 'This is a card widget with some content.'),
-            CardWidget(title: 'Card Title', content: 'This is a card widget with some content.'),
+
+            ...List.generate(8, (index) => 
+              CardWidget(
+                title: 'Card Title $index', 
+                content: 'This is the content of card number $index.'
+              )
+            ),
+
+
           ],
         ),
       ),
