@@ -33,6 +33,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -110,9 +111,9 @@ class _LoginPageState extends State<LoginPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Login Successful!'))
       );
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){
         return WidgetTree();
-      }));
+      }), (route) => false);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Invalid email or password'))
