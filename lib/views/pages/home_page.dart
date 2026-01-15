@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
-            HeroWidget(title: 'HOME PAGE'),
+            HeroWidget(title: 'HOME'),
             SizedBox(height: 20),
             Text('Welcome to the Home Page!', style: TextStyle(fontSize: 18)),
             SizedBox(height: 20),

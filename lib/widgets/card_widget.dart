@@ -15,7 +15,7 @@ class CardWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: TextStyle(color: Colors.green, fontSize: 16, fontWeight: FontWeight.bold)),
+                  Text(title, style: TextStyle(color: Colors.tealAccent, fontSize: 16, fontWeight: FontWeight.bold)),
                   SizedBox(height: 10),
                   Text(content, style: TextStyle(fontSize: 14)),
                 ],
