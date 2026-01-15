@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_project_1/data/constant.dart';
+import 'package:my_project_1/views/pages/course_page.dart';
 import 'package:my_project_1/widgets/card_widget.dart';
 import 'package:my_project_1/widgets/hero_widget.dart';
 
@@ -23,7 +24,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
-            HeroWidget(title: 'HOME'),
+            HeroWidget(title: 'HOME', destination: CoursePage(),),
             SizedBox(height: 20),
             Text('Welcome to the Home Page!', style: TextStyle(fontSize: 18)),
             SizedBox(height: 20),

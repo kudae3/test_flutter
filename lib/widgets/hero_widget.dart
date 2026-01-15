@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:my_project_1/views/pages/course_page.dart';
 
 class HeroWidget extends StatelessWidget {
   final String title;
+  final Widget? destination;
   
-  const HeroWidget({super.key, required this.title});
+  const HeroWidget({super.key, required this.title, this.destination});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return CoursePage();
-        }));
+        if(destination != null) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => destination!));
+        }
       },
       child: Stack(
         alignment: Alignment.center,
