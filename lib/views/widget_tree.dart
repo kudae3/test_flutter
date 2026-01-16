@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_project_1/data/notifiers.dart';
-import 'package:my_project_1/views/pages/home_page.dart';
-import 'package:my_project_1/views/pages/profile_page.dart';
-import 'package:my_project_1/views/pages/setting_page.dart';
-import 'package:my_project_1/widgets/navbar_widget.dart';
+import 'package:my_flutter/data/notifiers.dart';
+import 'package:my_flutter/views/pages/home_page.dart';
+import 'package:my_flutter/views/pages/profile_page.dart';
+import 'package:my_flutter/views/pages/setting_page.dart';
+import 'package:my_flutter/widgets/navbar_widget.dart';
 
 List<Widget> pages = [
   HomePage(),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_project_1/views/widget_tree.dart';
+import 'package:my_flutter/views/widget_tree.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -37,74 +37,83 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Lottie.asset('assets/lotties/Login.json'),  
+      body: LayoutBuilder(builder: (context, constraints) {
+        return SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: constraints.maxHeight,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Lottie.asset('assets/lotties/Login.json'),  
+              
+              const SizedBox(height: 30),
+              
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    border: OutlineInputBorder(
+                      borderRadius:BorderRadius.circular(10)
+                    ),
+                  ),
+                ),
+              ),
           
-          const SizedBox(height: 30),
-    
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: emailController,
-              decoration: InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(
-                  borderRadius:BorderRadius.circular(10)
+              const SizedBox(height: 20),
+          
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  obscureText: true,
+                  controller: passwordController,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    border: OutlineInputBorder(
+                      borderRadius:BorderRadius.circular(10)
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-
-          const SizedBox(height: 20),
-
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              obscureText: true,
-              controller: passwordController,
-              decoration: InputDecoration(
-                labelText: 'Password',
-                border: OutlineInputBorder(
-                  borderRadius:BorderRadius.circular(10)
+          
+              const SizedBox(height: 20),
+          
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FilledButton(onPressed:() {
+                  return onLogin();
+                }, 
+                style: FilledButton.styleFrom(
+                  minimumSize: Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)
+                  )
                 ),
+                child: Text('Login')),
               ),
-            ),
+              
+              // ValueListenableBuilder(
+              //   valueListenable: emailController, 
+              //   builder:(context, value, child) {
+              //     return Text('Email: ${emailController.text}');
+              //   },
+              // ),
+          
+              // ValueListenableBuilder(
+              //   valueListenable: passwordController, 
+              //   builder:(context, value, child) {
+              //     return Text('Password: ${passwordController.text}');
+              //   },
+              // )
+          
+            ],
           ),
-
-          const SizedBox(height: 20),
-
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: FilledButton(onPressed:() {
-              return onLogin();
-            }, 
-            style: FilledButton.styleFrom(
-              minimumSize: Size(double.infinity, 50),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)
-              )
-            ),
-            child: Text('Login')),
-          ),
-    
-          // ValueListenableBuilder(
-          //   valueListenable: emailController, 
-          //   builder:(context, value, child) {
-          //     return Text('Email: ${emailController.text}');
-          //   },
-          // ),
-
-          // ValueListenableBuilder(
-          //   valueListenable: passwordController, 
-          //   builder:(context, value, child) {
-          //     return Text('Password: ${passwordController.text}');
-          //   },
-          // )
-
-        ],
-      )
+        ),
+      );
+      })
     );
   }
   void onLogin() {

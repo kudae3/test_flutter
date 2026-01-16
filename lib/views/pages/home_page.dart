@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_project_1/data/constant.dart';
-import 'package:my_project_1/views/pages/course_page.dart';
-import 'package:my_project_1/widgets/card_widget.dart';
-import 'package:my_project_1/widgets/hero_widget.dart';
+import 'package:my_flutter/data/constant.dart';
+import 'package:my_flutter/views/pages/course_page.dart';
+import 'package:my_flutter/widgets/card_widget.dart';
+import 'package:my_flutter/widgets/hero_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

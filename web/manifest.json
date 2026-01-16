@@ -1,6 +1,6 @@
 {
-    "name": "my_project_1",
-    "short_name": "my_project_1",
+    "name": "my_flutter",
+    "short_name": "my_flutter",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#hexcode",
